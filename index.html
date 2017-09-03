@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Магазин музыкальных инструментов и оборудования в Санкт-Петербурге.">
+
+    <title>Guitar Shop - музыкальные инструменты и оборудование</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Modals -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="userAuthModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content userAuthModal">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+	        <h4 class="modal-title">Авторизация</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="authWrap">
+	        	<input type="text" class="form-control formAuth" placeholder="Логин или почта">
+	        	<input type="password" class="form-control formAuth" placeholder="Ваш пароль">
+	        	<span>
+	        		<button type="button" class="btn btnAuth">Войти</button>
+	        	</span>
+	        	<span class="passForget">
+				<a href="#">
+	        		Забыли пароль?
+	        	</a>
+	        	</span>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="userRegModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content userRegModal">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+	        <h4 class="modal-title">Регистрация</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="regWrap">
+	        	<input type="text" class="form-control formAuth" placeholder="Ваш E-mail">
+	        	<input type="password" class="form-control formAuth" placeholder="Пароль">
+	        	<input type="password" class="form-control formAuth" placeholder="Пароль ещё раз">
+	        	<div class="regCheckboxes text-left">
+		        	<div class="checkbox">
+		        	  <label>
+		        	    <input type="checkbox" id="checkSubscription" checked> Получать предложения об акциях и скидках
+		        	  </label>
+		        	</div>
+		        	<div class="checkbox">
+		        	  <label>
+		        	    <input type="checkbox" id="checkPersonalData" checked> Я согласен на обработку моих персональных данных
+		        	  </label>
+		        	</div>
+		        </div>
+	        	<span class="regConfirm">
+	        		<button type="button" class="btn btnAuth" id="regConfirm">Регистрация</button>
+	        	</span>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+    <!-- Header -->
+    <div class="header-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 header-left">
+                    <p>
+                        Санкт-Петербург
+                        <br>
+                        <a class="header-phone" href="tel:+7(812)321-23-45">
+                            +7(812)321-23-45
+                        </a>
+                        <br>
+                        С <strong>10.00</strong> до <strong>20.00</strong> без выходных
+                    </p>
+                    <p class="hidden-xs">
+                        <a href="mailto:info@guitarshop.ru">info@guitarshop.ru</a>
+                    </p>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-5 col-lg-6 header-mid">
+                    <img class="center-block logo" src="img/logo1.png" alt="">
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 header-right">
+                	<div class="header-auth">
+	                    <span class="userAuth text-right">
+	                        <a data-toggle="modal" href="#userAuthModal">
+	                            <span class="glyphicon glyphicon-user"></span>
+	                            Вход
+	                        </a>
+	                    </span>
+	                    <span class="userReg text-right">
+	                        <a data-toggle="modal" href="#userRegModal">
+	                            <span class="glyphicon glyphicon-check"></span>
+	                            Регистрация
+	                        </a>
+	                    </span>
+	                </div>
+                    <div class="header-cart text-right">
+                        <a href="#">
+                            <button class="btn btn-cart btn-lg" type="button">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                            </button>
+                            <span class="cart-items">
+                                0
+                            </span>
+                            <span class="cart-divider">
+                                |
+                            </span>
+                            <span class="cart-cost">
+                                0 &#8381
+                            </span>
+                        </a>
+                    </div>
+                </div>          
+            </div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-main">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle menu-toggle" data-toggle="collapse" data-target="#navbar-collapse-1" data-parent="#navAccordion">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button type="button" class="navbar-toggle search-toggle" data-toggle="collapse" data-target="#navbar-collapse-2" data-parent="#navAccordion">
+                	<span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Акции</a></li>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Блог</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-2">
+            	<form class="navbar-form navbar-right">
+            	        <input type="text" class="form-control form-search" placeholder="Поиск...">
+            	    <button type="submit" class="btn btn-search">Найти!</button>
+            	</form>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4 col-md-4 col-lg-3">
+	<!-- Catalogue -->
+                <div class="panel catalogueWrap" id="accordion"> 
+
+                    <div class="catalogue-heading">
+                        <h3 class="catalogue-title">Каталог</h3>
+                    </div>
+
+                    <div class="panel catalogue-level-1">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            <h4 class="panel-title">
+                                Гитары
+                                <div class="pull-right catalogue-icon">
+                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                </div>
+                            </h4>
+                        </a>
+                        <div id="collapse1" class="collapse">
+                            <ul class="nav nav-pills nav-stacked catalogue-level-2">
+                                <li>
+                                    <a href="#">Акустические гитары</a>
+                                </li>
+                                <li>
+                                    <a href="#">Электрогитары</a>
+                                </li>
+                                <li>
+                                    <a href="#">Бас-гитары</a>
+                                </li>
+                                <li>
+                                    <a href="#">Комбики</a>
+                                </li>
+                                <li>
+                                    <a href="#">Педали для гитар</a>
+                                </li>
+                                <li>
+                                    <a href="#">Чехлы</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="panel catalogue-level-1">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                <h4 class="panel-title">
+                                    Клавишные
+                                    <div class="pull-right catalogue-icon">
+                                        <span class="glyphicon glyphicon-menu-down"></span>
+                                    </div>
+                                </h4>
+                        </a>
+                        <div id="collapse2" class="collapse">
+                            <ul class="nav nav-pills nav-stacked catalogue-level-2">
+                                <li>
+                                    <a href="#">Пианино</a>
+                                </li>
+                                <li>
+                                    <a href="#">Рояли</a>
+                                </li>
+                                <li>
+                                    <a href="#">Синтезаторы</a>
+                                </li>
+                                <li>
+                                    <a href="#">Midi-клавиатуры</a>
+                                </li>
+                                <li>
+                                    <a href="#">Чехлы</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="panel catalogue-level-1">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            <h4 class="panel-title">
+                                Ударные
+                                <div class="pull-right catalogue-icon">
+                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                </div>
+                            </h4>
+
+                        </a>
+                        <div id="collapse3" class="collapse">
+                            <ul class="nav nav-pills nav-stacked catalogue-level-2">
+                                <li>
+                                    <a href="#">Установки</a>
+                                </li>
+                                <li>
+                                    <a href="#">Педали</a>
+                                </li>
+                                <li>
+                                    <a href="#">Стойки и фурнитура</a>
+                                </li>
+                                <li>
+                                    <a href="#">Электронные ударные</a>
+                                </li>
+                                <li>
+                                    <a href="#">Палочки</a>
+                                </li>
+                                <li>
+                                    <a href="#">Аксессуары</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+	                <div class="panel catalogue-level-1">
+	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+	                        <h4 class="panel-title">
+	                            DJ-оборудование
+	                            <div class="pull-right catalogue-icon">
+	                                <span class="glyphicon glyphicon-menu-down"></span>
+	                            </div>
+	                        </h4>
+	                    </a>
+	                    <div id="collapse4" class="collapse">
+	                        <ul class="nav nav-pills nav-stacked catalogue-level-2">
+	                            <li>
+	                                <a href="#">Микшерные пульты</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">DJ-наушники</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Аксессуары</a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+
+	                <div class="panel catalogue-level-1">
+	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+	                        <h4 class="panel-title">
+	                            Духовые
+	                            <div class="pull-right catalogue-icon">
+	                                <span class="glyphicon glyphicon-menu-down"></span>
+	                            </div>
+	                        </h4>
+	                    </a>
+	                    <div id="collapse5" class="collapse">
+	                        <ul class="nav nav-pills nav-stacked catalogue-level-2">
+	                            <li>
+	                                <a href="#">Флейты</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Саксофоны</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Кларнеты</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Тромбоны</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Трубы</a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+
+					<div class="panel catalogue-level-1">
+	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+	                        <h4 class="panel-title">
+	                            Микрофоны
+	                            <div class="pull-right catalogue-icon">
+	                                <span class="glyphicon glyphicon-menu-down"></span>
+	                            </div>
+	                        </h4>
+	                    </a>
+	                    <div id="collapse6" class="collapse">
+	                        <ul class="nav nav-pills nav-stacked catalogue-level-2">
+	                            <li>
+	                                <a href="#">Ламповые микрофоны</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Студийные микрофоны</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Звукопоглащающие экраны</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Микрофоны для караоке</a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+
+	                <div class="panel catalogue-level-1">
+	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+	                        <h4 class="panel-title">
+	                            Перкуссия
+	                            <div class="pull-right catalogue-icon">
+	                                <span class="glyphicon glyphicon-menu-down"></span>
+	                            </div>
+	                        </h4>
+	                    </a>
+	                    <div id="collapse7" class="collapse">
+	                        <ul class="nav nav-pills nav-stacked catalogue-level-2">
+	                            <li>
+	                                <a href="#">Дарбука</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Джембе</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Кахон</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Тамбурины</a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+
+	                <div class="panel catalogue-level-1">
+	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+	                        <h4 class="panel-title">
+	                            Звук
+	                            <div class="pull-right catalogue-icon">
+	                                <span class="glyphicon glyphicon-menu-down"></span>
+	                            </div>
+	                        </h4>
+	                    </a>
+	                    <div id="collapse8" class="collapse">
+	                        <ul class="nav nav-pills nav-stacked catalogue-level-2">
+	                            <li>
+	                                <a href="#">Акустические системы</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Студийные мониторы</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Наушники</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Радиосистемы</a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+
+	                <div class="panel catalogue-level-1">
+	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+	                        <h4 class="panel-title">
+	                            Свет
+	                            <div class="pull-right catalogue-icon">
+	                                <span class="glyphicon glyphicon-menu-down"></span>
+	                            </div>
+	                        </h4>
+	                    </a>
+	                    <div id="collapse9" class="collapse">
+	                        <ul class="nav nav-pills nav-stacked catalogue-level-2">
+	                            <li>
+	                                <a href="#">Прожекторы LED</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Светодиодные панели</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Лазеры</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Стробоскопы</a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+
+	                <div class="panel catalogue-level-1">
+	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+	                        <h4 class="panel-title">
+	                            Аксессуары
+	                            <div class="pull-right catalogue-icon">
+	                                <span class="glyphicon glyphicon-menu-down"></span>
+	                            </div>
+	                        </h4>
+	                    </a>
+	                    <div id="collapse10" class="collapse">
+	                        <ul class="nav nav-pills nav-stacked catalogue-level-2">
+	                            <li>
+	                                <a href="#">Кабели</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Стойки</a>
+	                            </li>
+	                            <li>
+	                                <a href="#">Переходники</a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+
+	            </div>
+
+	<!-- News -->
+                <h4 class="headingNews hidden-xs">Последние новости
+                </h4>
+
+                <div class="latestNews hidden-xs">
+
+                    <div class="media latestNewsBlock">
+                     <div class="media-left">
+                         <img class="media-object" src="img/news1.jpg" alt="">
+                     </div>
+                     <div class="media-body">
+                        <a href="#">
+                           <h4 class="media-heading">Как освободить время для занятий музыкой: 7 шагов
+                           </h4>
+                        </a>
+                           Опубликовано 15.08.2017
+                     </div>
+                    </div>
+
+                    <div class="media latestNewsBlock">
+                     <div class="media-left">
+                         <img class="media-object" src="img/news2.jpg" alt="">
+                     </div>
+                     <div class="media-body">
+                        <a href="#">
+                           <h4 class="media-heading">Форма акустической гитары и её влияние на звук
+                           </h4>
+                        </a>
+                           Опубликовано 14.08.2017
+                     </div>
+                    </div>
+
+                    <div class="media latestNewsBlock">
+                     <div class="media-left">
+                         <img class="media-object" src="img/news3.jpg" alt="">
+                     </div>
+                     <div class="media-body">
+                        <a href="#">
+                           <h4 class="media-heading">Как часто и как много нужно репетировать?
+                           </h4>
+                        </a>
+                           Опубликовано 12.08.2017
+                     </div>
+                    </div>
+
+                    <div class="media latestNewsBlock">
+                     <div class="media-left">
+                         <img class="media-object" src="img/news4.jpg" alt="">
+                     </div>
+                     <div class="media-body">
+                        <a href="#">
+                           <h4 class="media-heading">Как выбирать площадки для выступлений в туре?
+                           </h4>
+                        </a>
+                           Опубликовано 11.08.2017
+                     </div>
+                    </div>
+                   
+                    <a class="btn btn-allNews" href="#">Все новости
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="col-sm-8 col-md-8 col-lg-9">
+	<!-- Slider -->
+                <div class="row carousel-holder hidden-xs">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                            	<a href="#">
+                                	<img class="slide-image" src="img/slide1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#">
+                                	<img class="slide-image" src="img/slide2.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#">
+                                	<img class="slide-image" src="img/slide3.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+
+	<!-- Products -->
+                <h3 class="headingPopular">Популярные товары
+                </h3>
+
+                <div class="row productsWrap">
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="img/product1.jpg" alt="">
+                                <div class="productName">
+                                    <h4 class="text-center">Акустическая гитара YAMAHA C40
+                                    </h4>
+                                </div>
+                            </a>
+                                <div class="caption productDescr">
+                                    <h4 class="productPrice" id="test">6990 &#8381
+                                    </h4>
+                                    <br>
+                                    <div class="pull-right">
+                                        <p class="productAvail">В наличии
+                                        </p>
+                                        <button class="btn btn-addToCart btn-lg">В корзину</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="img/product2.jpg" alt="">
+                                <div class="productName">
+                                    <h4 class="text-center">Электрогитара JACKSON PRO MM JUGG
+                                    </h4>
+                                </div>
+                            </a>
+                                <div class="caption productDescr">
+                                    <h4 class="productPrice">68000 &#8381
+                                    </h4>
+                                    <br>
+                                    <div class="pull-right">
+                                        <p class="productAvail">В наличии
+                                        </p>
+                                        <button class="btn btn-addToCart btn-lg">В корзину</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="img/product3.jpg" alt="">
+                                <div class="productName">
+                                    <h4 class="text-center">Гитарный усилитель MARSHALL MG10CF
+                                    </h4>
+                                </div>
+                            </a>
+                                <div class="caption productDescr">
+                                    <h4 class="productPrice">6600 &#8381
+                                    </h4>
+                                    <br>
+                                    <div class="pull-right">
+                                        <p class="productAvail">В наличии
+                                        </p>
+                                        <button class="btn btn-addToCart btn-lg">В корзину</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="img/product4.jpg" alt="">
+                                <div class="productName">
+                                    <h4 class="text-center">Синтезатор KORG KROSS-61
+                                    </h4>
+                                </div>
+                            </a>
+                                <div class="caption productDescr">
+                                    <h4 class="productPrice">49000 &#8381
+                                    </h4>
+                                    <br>
+                                    <div class="pull-right">
+                                        <p class="productAvail">В наличии
+                                        </p>
+                                        <button class="btn btn-addToCart btn-lg">В корзину</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="img/product5.jpg" alt="">
+                                <div class="productName">
+                                    <h4 class="text-center">Синтезатор Roland VP-03
+                                    </h4>
+                                </div>
+                            </a>
+                                <div class="caption productDescr">
+                                    <h4 class="productPrice">27990 &#8381
+                                    </h4>
+                                    <br>
+                                    <div class="pull-right">
+                                        <p class="productAvail">В наличии
+                                        </p>
+                                        <button class="btn btn-addToCart btn-lg">В корзину</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="img/product6.jpg" alt="">
+                                <div class="productName">
+                                    <h4 class="text-center">Гитарный набор IBANEZ IJRG200U
+                                    </h4>
+                                </div>
+                            </a>
+                                <div class="caption productDescr">
+                                    <h4 class="productPrice">24400 &#8381
+                                    </h4>
+                                    <br>
+                                    <div class="pull-right">
+                                        <p class="productAvail">В наличии
+                                        </p>
+                                        <button class="btn btn-addToCart btn-lg">В корзину</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+	<!-- Subscription -->
+        <div class="row">    
+            <div class="col-sm-12 col-md-5 col-lg-4 subscription-left">
+                <h5>Подпишись! Новости, акции, скидки.
+                </h5>
+            </div>
+
+            <div class="col-sm-12 col-md-5 col-lg-6 subscription-middle">
+                <div class="input-group">
+                  <input type="text" class="form-control form-subscribe" placeholder="Укажите Ваш E-mail...">
+                  <span class="input-group-btn">
+                        <button class="btn btn-subscribe" type="button">Подписаться</button>
+                  </span>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-2 col-lg-2 subscription-right">
+                <a href="#">
+                    <img src="img/vk.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="img/facebook.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="img/youtube.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Timur A 2017</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
